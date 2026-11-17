@@ -39,6 +39,24 @@ const portofolioToko = [
    { src: tokosepatu4, alt: "tokosepatu 4" },
    { src: tokosepatu5, alt: "tokosepatu 5" },
 ]
+// ---------------//
+
+const portfolioSlides = [
+  {
+    title: "Ruangan Anak",
+    description: "Desain interior ruangan anak.",
+    images: portfolioImages,
+  },
+  {
+    title: "Toko Sepatu",
+    description: "Desain interior toko sepatu.",
+    images: portofolioToko,
+  },
+  ...Array.from({ length: 11 }, (_, index) => ({
+    title: `[Judul proyek ${index + 3}]`,
+    description: `[Tambahkan deskripsi proyek ${index + 3}.]`,
+  })),
+];
 
 
 
@@ -75,44 +93,33 @@ export default function SectionConten() {
         modules={[Autoplay, Pagination, Navigation]}
         className="portfolio-swiper"
       >
-        <SwiperSlide>
-          <div className="portfolio-slide-gallery">
-            {portfolioImages.map((image) => (
-              <button
-                className="portfolio-slide-image"
-                key={image.src}
-                type="button"
-                aria-label={`Perbesar ${image.alt}`}
-                onClick={() => openImage(image)}
-              >
-                <img src={image.src} alt={image.alt} />
-              </button>
-            ))}
-          </div>
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <div className="portfolio-slide-gallery">
-            {portofolioToko.map((image) => (
-              <button
-                className="portfolio-slide-image"
-                key={image.src}
-                type="button"
-                aria-label={`Perbesar ${image.alt}`}
-                onClick={() => openImage(image)}
-              >
-                <img src={image.src} alt={image.alt} />
-              </button>
-            ))}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {portfolioSlides.map((slide) => (
+          <SwiperSlide key={slide.title}>
+            {slide.images ? (
+              <div className="portfolio-slide-gallery">
+                {slide.images.map((image) => (
+                  <button
+                    className="portfolio-slide-image"
+                    key={image.src}
+                    type="button"
+                    aria-label={`Perbesar ${image.alt}`}
+                    onClick={() => openImage(image)}
+                  >
+                    <img src={image.src} alt={image.alt} />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="portfolio-slide-placeholder">
+                Tambahkan visual proyek
+              </div>
+            )}
+            <div className="portfolio-slide-caption">
+              <h3>{slide.title}</h3>
+              <p>{slide.description}</p>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       {selectedImage && (

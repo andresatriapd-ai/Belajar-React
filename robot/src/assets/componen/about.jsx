@@ -30,45 +30,65 @@ const experiences = [
   },
   {
     role: "[Interior Deisgner]",
-    organization: "[Nama Perusahaan 3]",
-    period: "[Bulan Tahun] - [Bulan Tahun]",
-    description: ["[Jelaskan tanggung jawab dan pencapaian utama Anda.]"],
+    organization: "[PT. Cipta Arsitektur Desain]",
+    period: "[Agustus 2024] - [Juni 2025]",
+    description: [
+        "Mendesain interior office, gymnasium sekolah, dan karaoke",
+        "Melakukan survei lokasi dan pengukuran",
+        "Berkolaborasi dengan tim membuat konsep desain, space planning, memilih material, serta membuat material board",
+        "Membuat 3D dengan SketchUp, render dengan Vray dan Adobe Photoshop",
+        "Membuat gambar kerja 2D dengan AutoCAD",
+        "Berkoordinasi dengan tim estimator, purchasing dan vendor untuk pengadaan kebutuhan barang/material proyek",
+    ],
   },
   {
-    role: "[Jabatan / Posisi 4]",
-    organization: "[Nama Perusahaan 4]",
-    period: "[Bulan Tahun] - [Bulan Tahun]",
-    description: ["[Jelaskan tanggung jawab dan pencapaian utama Anda.]"],
+    role: "[Interior Deisgner]",
+    organization: "[Cukizu Furniture]",
+    period: "[Juni 2025] - [Oktober 2025]",
+    description: [
+        "Mendesain interior dan furniture residensial (rumah dan apartemen)",
+        "Menangani/handle klien dan project dari awal hingga akhir, serta menangani beberapa project sekaligus dalam waktu bersamaan",
+        "Melakukan survei lokasi, pengukuran dan meeting dengan klien",
+        "Memecahahkan masalah pada ruang untuk memenuhi keinginan dan kebutuhan klien",
+        "Membuat konsep desain, memilih dan menyiapkan material dan warna, serta membuat dan mempresentasikan proposal desain dengan klien",
+        "Membuat 3D dengan SketchUp, render Enscape dan adobe photoshop",
+        "Membuat gambar kerja 2D dengan AutoCAD",
+        "Koordinasi rancangan dan gambar project dengan tim produksi dan purchasing untuk pengadaan material"
+    ],
   },
   {
-    role: "[Jabatan / Posisi 5]",
-    organization: "[Nama Perusahaan 5]",
-    period: "[Bulan Tahun] - [Bulan Tahun]",
-    description: ["[Jelaskan tanggung jawab dan pencapaian utama Anda.]"],
+    role: "[Interior Designer]",
+    organization: "[PT. Estetika Nindya Desain]",
+    period: "[Februari 2026] - [Sekarang]",
+    description: [
+        "Mendesain interior rumah, kantor dan komersial (salon, cake shop dan office)",
+        "Melakukan survei lokasi, pengukuran dan meeting dengan klien",
+        "Memecahahkan masalah setiap project desain untuk memenuhi keinginan dan kebutuhan klien",
+        "Membuat konsep desain, memilih dan menyiapkan material dan warna, serta membuat dan mempresentasikan proposal desain dengan klien",
+        "Membuat 3D dengan SketchUp, render Enscape dan adobe photoshop",
+        "Membuat gambar kerja 2D dengan AutoCAD",
+        "Koordinasi rancangan dan gambar project dengan tim produksi dan purchasing untuk pengadaan material",
+        "Melalukan pengecekan dan pengawasan pada proses produksi di workshop, untuk memastikan kesesuaian dengan gambar perencanaan",
+    ],
   },
 ];
 
 const education = [
   {
-    degree: "[Nama Gelar / Jurusan]",
-    institution: "[Nama Sekolah / Universitas]",
-    period: "[Tahun Mulai] - [Tahun Selesai]",
-    details: "[Opsional: prestasi, fokus studi, atau informasi relevan.]",
+    degree: "[Strata 1(S1) - Desain Interior]",
+    institution: "[Universitas Esa Unggul]",
+    period: "[Agustus 2018] - [Februari 2023]",
+    IPK: "3.30 Dari 4.00",
   },
 ];
 
 const skills = [
-  "[Keahlian 1]",
-  "[Keahlian 2]",
-  "[Keahlian 3]",
-  "[Keahlian 4]",
-];
-
-const projects = [
-  {
-    name: "[Nama Proyek]",
-    description: "[Jelaskan proyek, kontribusi, dan hasilnya.]",
-  },
+  "Sketsa manual/tangan",
+  "AutoCAD 2D",
+  "SketchUp 3D dan SkethcUp Layout (Tersertifikasi)",
+  "Render dengan Vray dan Enscape (gambar dan animasi)",
+  "Adobe Photoshop",
+  "Microsoft Office",
 ];
 
 export default function About() {
@@ -103,7 +123,7 @@ export default function About() {
       ref={cvRef}
     >
       <header className="about-cv__header">
-        <p className="about-cv__eyebrow">PROFIL PROFESIONAL</p>
+        {/* <p className="about-cv__eyebrow">PROFIL PROFESIONAL</p> */}
         <h2>[Febiola Marlentina]</h2>
         <p className="about-cv__role">[Interior Designer]</p>
         <p className="about-cv__summary">
@@ -124,31 +144,6 @@ Solusi desain yang tepat..]
 
       <div className="about-cv__grid">
         <div className="about-cv__main">
-          <section className="about-cv__section">
-            <h3>Pengalaman</h3>
-            {experiences.map((experience) => (
-              <article
-                className="about-cv__entry"
-                key={`${experience.role}-${experience.organization}`}
-              >
-                <div className="about-cv__entry-heading">
-                  <div>
-                    <h4>{experience.role}</h4>
-                    <p className="about-cv__organization">
-                      {experience.organization}
-                    </p>
-                  </div>
-                  <span className="about-cv__period">{experience.period}</span>
-                </div>
-                <ul className="about-cv__description">
-                  {experience.description.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </section>
-
           <section className="about-cv__section">
             <h3>Pendidikan</h3>
             {education.map((item) => (
@@ -171,11 +166,28 @@ Solusi desain yang tepat..]
           </section>
 
           <section className="about-cv__section">
-            <h3>Proyek Pilihan</h3>
-            {projects.map((project) => (
-              <article className="about-cv__entry" key={project.name}>
-                <h4>{project.name}</h4>
-                <p>{project.description}</p>
+            <h3>Pengalaman</h3>
+            {experiences.map((experience) => (
+              <article
+                className="about-cv__entry"
+                key={`${experience.role}-${experience.organization}`}
+              >
+                <div className="about-cv__entry-heading">
+                  <div>
+                    <h4>{experience.role}</h4>
+                    <p className="about-cv__organization">
+                      {experience.organization}
+                    </p>
+                  </div>
+                  <span className="about-cv__period">
+                    {experience.period}
+                  </span>
+                </div>
+                <ul className="about-cv__description">
+                  {experience.description.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </section>
@@ -193,16 +205,9 @@ Solusi desain yang tepat..]
 
           <section className="about-cv__section">
             <h3>Sertifikasi</h3>
-            <p>[Nama sertifikasi] - [Penerbit, Tahun]</p>
+            <p>Pelatihan SketchUp oleh ACA Pacific Indonesia - 2021</p>
           </section>
 
-          <section className="about-cv__section">
-            <h3>Bahasa</h3>
-            <ul className="about-cv__simple-list">
-              <li>[Bahasa] - [Tingkat kemampuan]</li>
-              <li>[Bahasa] - [Tingkat kemampuan]</li>
-            </ul>
-          </section>
         </aside>
       </div>
     </div>

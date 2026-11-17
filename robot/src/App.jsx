@@ -430,7 +430,7 @@ export default function App() {
         <div className="portfolio-heading">
           <p>MARLENTINA DESIGN</p>
           <h2>Portofolio</h2>
-          <span>Jelajahi beberapa karya desain.</span>
+          
         </div>
         <SectionConten />
       </section>
