@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "npm --prefix robot run dev --"
+  },
   "dependencies": {
     "swiper": "^14.4.0"
   }
