@@ -55,7 +55,7 @@ function Eye({ position }) {
 }
 
 // KOMPONEN ROBOT
-function CuteRobot() {
+function Robot() {
   const robotRef = useRef();
   const headRef = useRef();
   const leftArmRef = useRef();
@@ -316,7 +316,7 @@ function Scene() {
         rotationIntensity={0}
         floatIntensity={0.12}
       >
-        <CuteRobot />
+        <Robot />
       </Float>
 
       <Grid
