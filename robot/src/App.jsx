@@ -4,8 +4,11 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, ContactShadows, Grid } from "@react-three/drei";
 import * as THREE from "three";
 import logoLentina from "./assets/logolentina.png";
+import profileImage from "./assets/componen/profil.jpg";
 import "./App.css";
 import SectionConten from "./assets/componen/section-conten.jsx";
+import Lanyard from "./assets/componen/about-lanyar.jsx";
+import About from "./assets/componen/about.jsx";
 
 // MATERIAL ROBOT
 const whiteMetal = new THREE.MeshStandardMaterial({
@@ -380,13 +383,13 @@ export default function App() {
               <span className="cursor-symbol">✧</span>
               Home
             </button>
-            <button className="interaction" onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}>
-              <span className="cursor-symbol">✧</span>
-              Portofolio
-            </button>
             <button className="interaction" onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}>
               <span className="cursor-symbol">✧</span>
               About Me
+            </button>
+            <button className="interaction" onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}>
+              <span className="cursor-symbol">✧</span>
+              Portofolio
             </button>
           </nav>
         </div>
@@ -412,6 +415,17 @@ export default function App() {
 
       </section>
 
+      <section className="page-section lanyard-section" id="about">
+         <div className="about-lanyard-layout">
+           <div className="lanyard-stage">
+             <Lanyard frontImage={profileImage} />
+           </div>
+           <div className="about-lanyard-content">
+             <About />
+           </div>
+        </div>
+      </section>
+
       <section className="page-section portfolio-section" id="portfolio">
         <div className="portfolio-heading">
           <p>MARLENTINA DESIGN</p>
@@ -419,10 +433,6 @@ export default function App() {
           <span>Jelajahi beberapa karya desain.</span>
         </div>
         <SectionConten />
-      </section>
-
-      <section className="page-section" id="about">
-        <h2>About Me</h2>
       </section>
 
       <footer>
