@@ -40,7 +40,37 @@ const portofolioToko = [
    { src: tokosepatu5, alt: "tokosepatu 5" },
 ]
 // ---------------//
+import apartemen1 from "./gambar-project3/apartemen1.jpg";
+import apartemen2 from "./gambar-project3/apartemen2.jpg";
+import apartemen3 from "./gambar-project3/apartemen3.jpg";
+import apartemen4 from "./gambar-project3/apartemen4.jpg";
+import apartemen5 from "./gambar-project3/apartemen5.jpg";
 
+ const portofolioApartemen = [
+  { src: apartemen1, alt: "apartemen 1" },
+  { src: apartemen2, alt: "apartemen 2" },
+  { src: apartemen3, alt: "apartemen 3" },
+  { src: apartemen4, alt: "apartemen 4" },
+  { src: apartemen5, alt: "apartemen 5" },
+ ]
+// ---------------//
+
+// ---------------//
+import kidroom1 from "./gambar-project4/kidroom1.jpg";
+import kidroom2 from "./gambar-project4/kidroom2.jpg";
+import kidroom3 from "./gambar-project4/kidroom3.jpg";
+import kidroom4 from "./gambar-project4/kidroom4.jpg";
+import kidroom5 from "./gambar-project4/kidroom5.jpg";
+
+const portofolioKidroom = [
+  { src: kidroom1, alt: "kidroom 1" },
+  { src: kidroom2, alt: "kidroom 2" },
+  { src: kidroom3, alt: "kidroom 3" },
+  { src: kidroom4, alt: "kidroom 4" },
+  { src: kidroom5, alt: "kidroom 5" },
+]
+
+// ---------------//
 const portfolioSlides = [
   {
     title: "Ruangan Anak",
@@ -52,6 +82,47 @@ const portfolioSlides = [
     description: "Desain interior toko sepatu.",
     images: portofolioToko,
   },
+  {
+    title: "Apartemen",
+    description: "Desain interior Apartemen.",
+    images: portofolioApartemen,
+  },
+  {
+    title: "Kid Room",
+    description: "Desain Interior Kid Room",
+    images: portofolioKidroom,
+  },
+  // {
+  //   title: "------------",
+  //   description: "--------------",
+  //   images: -------------,
+  // },
+  // {
+  //   title: "------------",
+  //   description: "--------------",
+  //   images: -------------,
+  // },
+  // {
+  //   title: "------------",
+  //   description: "--------------",
+  //   images: -------------,
+  // },
+  // {
+  //   title: "------------",
+  //   description: "--------------",
+  //   images: -------------,
+  // },
+  // {
+  //   title: "------------",
+  //   description: "--------------",
+  //   images: -------------,
+  // },
+  // {
+  //   title: "------------",
+  //   description: "--------------",
+  //   images: -------------,
+  // },
+  
   ...Array.from({ length: 11 }, (_, index) => ({
     title: `[Judul proyek ${index + 3}]`,
     description: `[Tambahkan deskripsi proyek ${index + 3}.]`,

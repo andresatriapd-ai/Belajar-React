@@ -3,8 +3,8 @@ import "./about.css";
 
 const experiences = [
   {
-    role: "[Internship Interior Designer]",
-    organization: "[Nusa Multi Dimensi]",
+    role: "Internship Interior Designer",
+    organization: "Nusa Multi Dimensi",
     period: "[Oktober 2021] - [Januari 2022]",
     description: [
       "Mendesain interior residensial dan ruang kantor.",
@@ -16,8 +16,8 @@ const experiences = [
     ],
   },
   {
-    role: "[Freelance Interior Deisgner]",
-    organization: "[SF Interior]",
+    role: "Freelance Interior Deisgner",
+    organization: "SF Interior",
     period: "[Februari 2022] - [Juni 2024]",
     description: [
         "Mendesain interior residensial",
@@ -29,8 +29,8 @@ const experiences = [
     ],
   },
   {
-    role: "[Interior Deisgner]",
-    organization: "[PT. Cipta Arsitektur Desain]",
+    role: "Interior Deisgner",
+    organization: "PT. Cipta Arsitektur Desain",
     period: "[Agustus 2024] - [Juni 2025]",
     description: [
         "Mendesain interior office, gymnasium sekolah, dan karaoke",
@@ -42,8 +42,8 @@ const experiences = [
     ],
   },
   {
-    role: "[Interior Deisgner]",
-    organization: "[Cukizu Furniture]",
+    role: "Interior Deisgner",
+    organization: "Cukizu Furniture",
     period: "[Juni 2025] - [Oktober 2025]",
     description: [
         "Mendesain interior dan furniture residensial (rumah dan apartemen)",
@@ -57,8 +57,8 @@ const experiences = [
     ],
   },
   {
-    role: "[Interior Designer]",
-    organization: "[PT. Estetika Nindya Desain]",
+    role: "Interior Designer",
+    organization: "PT. Estetika Nindya Desain",
     period: "[Februari 2026] - [Sekarang]",
     description: [
         "Mendesain interior rumah, kantor dan komersial (salon, cake shop dan office)",
@@ -75,8 +75,8 @@ const experiences = [
 
 const education = [
   {
-    degree: "[Strata 1(S1) - Desain Interior]",
-    institution: "[Universitas Esa Unggul]",
+    degree: "Strata 1(S1) - Desain Interior",
+    institution: "Universitas Esa Unggul",
     period: "[Agustus 2018] - [Februari 2023]",
     IPK: "3.30 Dari 4.00",
   },
@@ -124,21 +124,27 @@ export default function About() {
     >
       <header className="about-cv__header">
         {/* <p className="about-cv__eyebrow">PROFIL PROFESIONAL</p> */}
-        <h2>[Febiola Marlentina]</h2>
-        <p className="about-cv__role">[Interior Designer]</p>
+        <h2>Febiola Marlentina</h2>
+        <p className="about-cv__role">Interior Designer</p>
         <p className="about-cv__summary">
-          [Sebagai interior designer berpengalaman, saya telah menangani berbagai proyek residensial, kantor, dan
+          Sebagai interior designer berpengalaman, saya telah menangani berbagai proyek residensial, kantor, dan
 area publik bersama beberapa perusahaan. Saya berkontribusi dalam pengembangan konsep desain, space
 planning, pemilihan material, serta visualisasi melalui gambar 2D dan 3D. Selain itu, saya berkomunikasi
 secara aktif dengan tim dan klien untuk memahami kebutuhan mereka dan menerjemahkannya menjadi
-Solusi desain yang tepat..]
+Solusi desain yang tepat.
         </p>
 
         <address className="about-cv__contact">
-          <span>[febiolalentina@gmail.com]</span>
-          <span>[089611571286]</span>
-          <span>[Depok, Jawa Barat]</span>
-          <span a href ="https://www.linkedin.com/in/febiola-marlentina-272499251/" >[LinkedIn / Portofolio]</span>
+          <span>febiolalentina@gmail.com</span>
+          <span>089611571286</span>
+          <span>Depok, Jawa Barat</span>
+          <a
+            href="https://www.linkedin.com/in/febiola-marlentina-272499251/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
         </address>
       </header>
 
