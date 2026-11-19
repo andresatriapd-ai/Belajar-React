@@ -91,7 +91,85 @@ const skills = [
   "Microsoft Office",
 ];
 
-export default function About() {
+const englishExperiences = [
+  {
+    role: "Interior Design Intern",
+    period: "October 2021 - January 2022",
+    description: [
+      "Designed residential interiors and office spaces.",
+      "Conducted site surveys and measurements.",
+      "Created design concepts, mood boards, and layouts.",
+      "Created 3D models using SketchUp, V-Ray, Enscape, and Adobe Photoshop.",
+      "Prepared design presentation files using Microsoft PowerPoint.",
+      "Learned how to prepare a BOQ.",
+    ],
+  },
+  {
+    role: "Freelance Interior Designer",
+    period: "February 2022 - June 2024",
+    description: [
+      "Designed residential interiors.",
+      "Conducted site surveys, measurements, and client meetings.",
+      "Created design concepts, selected materials, and planned layouts based on client needs.",
+      "Created 3D models using SketchUp, then rendered them with V-Ray, Enscape, and Adobe Photoshop.",
+      "Prepared 2D working drawings using SketchUp LayOut.",
+    ],
+  },
+  {
+    role: "Interior Designer",
+    period: "August 2024 - June 2025",
+    description: [
+      "Designed interiors for offices, school gymnasiums, and karaoke venues.",
+      "Conducted site surveys and measurements.",
+      "Collaborated with the team on design concepts, space planning, material selection, and material boards.",
+      "Created 3D models using SketchUp and rendered them with V-Ray and Adobe Photoshop.",
+      "Prepared 2D working drawings using AutoCAD.",
+      "Coordinated with estimators, purchasing teams, and vendors to procure project materials.",
+    ],
+  },
+  {
+    role: "Interior Designer",
+    period: "June 2025 - October 2025",
+    description: [
+      "Designed residential interiors and furniture for houses and apartments.",
+      "Managed clients and projects from start to finish, often handling several projects simultaneously.",
+      "Conducted site surveys, measurements, and client meetings.",
+      "Solved spatial challenges to meet client needs and preferences.",
+      "Developed design concepts, selected materials and colors, and prepared and presented design proposals.",
+      "Created 3D models using SketchUp and rendered them with Enscape and Adobe Photoshop.",
+      "Prepared 2D working drawings using AutoCAD.",
+      "Coordinated designs and project drawings with production and purchasing teams to procure materials.",
+    ],
+  },
+  {
+    role: "Interior Designer",
+    period: "February 2026 - Present",
+    description: [
+      "Designed residential, office, and commercial interiors, including salons and cake shops.",
+      "Conducted site surveys, measurements, and client meetings.",
+      "Solved design challenges to meet client needs and preferences.",
+      "Developed design concepts, selected materials and colors, and prepared and presented design proposals.",
+      "Created 3D models using SketchUp and rendered them with Enscape and Adobe Photoshop.",
+      "Prepared 2D working drawings using AutoCAD.",
+      "Coordinated designs and project drawings with production and purchasing teams to procure materials.",
+      "Inspected and monitored workshop production to ensure it matched the design drawings.",
+    ],
+  },
+];
+
+const englishSkills = [
+  "Hand sketching",
+  "AutoCAD 2D",
+  "SketchUp 3D and SketchUp LayOut (Certified)",
+  "Rendering with V-Ray and Enscape (stills and animation)",
+  "Adobe Photoshop",
+  "Microsoft Office",
+];
+
+export default function About({ language = "id" }) {
+  const isEnglish = language === "en";
+  const displayedExperiences = isEnglish ? englishExperiences : experiences;
+  const displayedSkills = isEnglish ? englishSkills : skills;
   const cvRef = useRef(null);
   const [isVisible, setIsVisible] = useState(
     () => typeof window !== "undefined" && !("IntersectionObserver" in window)
@@ -127,11 +205,9 @@ export default function About() {
         <h2>Febiola Marlentina</h2>
         <p className="about-cv__role">Interior Designer</p>
         <p className="about-cv__summary">
-          Sebagai interior designer berpengalaman, saya telah menangani berbagai proyek residensial, kantor, dan
-area publik bersama beberapa perusahaan. Saya berkontribusi dalam pengembangan konsep desain, space
-planning, pemilihan material, serta visualisasi melalui gambar 2D dan 3D. Selain itu, saya berkomunikasi
-secara aktif dengan tim dan klien untuk memahami kebutuhan mereka dan menerjemahkannya menjadi
-Solusi desain yang tepat.
+          {isEnglish
+            ? "As an experienced interior designer, I have worked on a range of residential, office, and public-space projects with several companies. I contribute to design concepts, space planning, material selection, and 2D and 3D visualization. I also work closely with teams and clients to understand their needs and turn them into thoughtful design solutions."
+            : "Sebagai interior designer berpengalaman, saya telah menangani berbagai proyek residensial, kantor, dan area publik bersama beberapa perusahaan. Saya berkontribusi dalam pengembangan konsep desain, space planning, pemilihan material, serta visualisasi melalui gambar 2D dan 3D. Selain itu, saya berkomunikasi secara aktif dengan tim dan klien untuk memahami kebutuhan mereka dan menerjemahkannya menjadi solusi desain yang tepat."}
         </p>
 
         <address className="about-cv__contact">
@@ -151,7 +227,7 @@ Solusi desain yang tepat.
       <div className="about-cv__grid">
         <div className="about-cv__main">
           <section className="about-cv__section">
-            <h3>Pendidikan</h3>
+            <h3>{isEnglish ? "Education" : "Pendidikan"}</h3>
             {education.map((item) => (
               <article
                 className="about-cv__entry"
@@ -159,12 +235,14 @@ Solusi desain yang tepat.
               >
                 <div className="about-cv__entry-heading">
                   <div>
-                    <h4>{item.degree}</h4>
+                    <h4>{isEnglish ? "Bachelor's Degree - Interior Design" : item.degree}</h4>
                     <p className="about-cv__organization">
                       {item.institution}
                     </p>
                   </div>
-                  <span className="about-cv__period">{item.period}</span>
+                  <span className="about-cv__period">
+                    {isEnglish ? "August 2018 - February 2023" : item.period}
+                  </span>
                 </div>
                 <p>{item.details}</p>
               </article>
@@ -172,22 +250,20 @@ Solusi desain yang tepat.
           </section>
 
           <section className="about-cv__section">
-            <h3>Pengalaman</h3>
-            {experiences.map((experience) => (
+            <h3>{isEnglish ? "Experience" : "Pengalaman"}</h3>
+            {displayedExperiences.map((experience, index) => (
               <article
                 className="about-cv__entry"
-                key={`${experience.role}-${experience.organization}`}
+                key={`${experience.role}-${experiences[index].organization}`}
               >
                 <div className="about-cv__entry-heading">
                   <div>
                     <h4>{experience.role}</h4>
                     <p className="about-cv__organization">
-                      {experience.organization}
+                      {experiences[index].organization}
                     </p>
                   </div>
-                  <span className="about-cv__period">
-                    {experience.period}
-                  </span>
+                  <span className="about-cv__period">{experience.period}</span>
                 </div>
                 <ul className="about-cv__description">
                   {experience.description.map((item) => (
@@ -201,17 +277,21 @@ Solusi desain yang tepat.
 
         <aside className="about-cv__sidebar">
           <section className="about-cv__section">
-            <h3>Keahlian</h3>
+            <h3>{isEnglish ? "Skills" : "Keahlian"}</h3>
             <ul className="about-cv__skills">
-              {skills.map((skill) => (
+              {displayedSkills.map((skill) => (
                 <li key={skill}>{skill}</li>
               ))}
             </ul>
           </section>
 
           <section className="about-cv__section">
-            <h3>Sertifikasi</h3>
-            <p>Pelatihan SketchUp oleh ACA Pacific Indonesia - 2021</p>
+            <h3>{isEnglish ? "Certification" : "Sertifikasi"}</h3>
+            <p>
+              {isEnglish
+                ? "SketchUp training by ACA Pacific Indonesia - 2021"
+                : "Pelatihan SketchUp oleh ACA Pacific Indonesia - 2021"}
+            </p>
           </section>
 
         </aside>

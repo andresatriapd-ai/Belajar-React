@@ -5,6 +5,26 @@
   border-radius: 20px;
 }
 
+.portfolio-swiper .swiper-pagination.swiper-pagination-horizontal {
+  bottom: 2px;
+}
+
+.portfolio-swiper .swiper-pagination-bullet {
+  opacity: 0.65;
+  transition:
+    background-color 250ms ease,
+    box-shadow 250ms ease,
+    opacity 250ms ease,
+    transform 250ms ease;
+}
+
+.portfolio-swiper .swiper-pagination-bullet-active {
+  background: #00cfff;
+  box-shadow: 0 0 10px rgba(0, 207, 255, 0.8);
+  opacity: 1;
+  transform: scale(1.3);
+}
+
 .portfolio-swiper .swiper-slide {
   display: flex;
   box-sizing: border-box;
@@ -31,7 +51,7 @@
 
 .portfolio-slide-caption {
   flex: 0 0 auto;
-  padding: 8px 10px 2px;
+  padding: 8px 10px 22px;
   text-align: center;
 }
 
@@ -151,7 +171,8 @@
 @media (prefers-reduced-motion: reduce) {
   .portfolio-slide-image img,
   .portfolio-lightbox,
-  .portfolio-lightbox > img {
+  .portfolio-lightbox > img,
+  .portfolio-swiper .swiper-pagination-bullet {
     animation-duration: 0.01ms;
     transition-duration: 0.01ms;
   }

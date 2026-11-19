@@ -1,5 +1,5 @@
 
-import  { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, ContactShadows, Grid } from "@react-three/drei";
 import * as THREE from "three";
@@ -9,6 +9,7 @@ import "./App.css";
 import SectionConten from "./assets/componen/section-conten.jsx";
 import Lanyard from "./assets/componen/about-lanyar.jsx";
 import About from "./assets/componen/about.jsx";
+import { SmoothGlowCursor } from "./assets/componen/cursor.jsx";
 
 // MATERIAL ROBOT
 const whiteMetal = new THREE.MeshStandardMaterial({
@@ -347,8 +348,35 @@ function Scene() {
 
 // APP UTAMA
 export default function App() {
+  const footerRef = useRef(null);
+  const [language, setLanguage] = useState("id");
+  const [footerVisible, setFooterVisible] = useState(
+    () => typeof window === "undefined" || !("IntersectionObserver" in window)
+  );
+  const isEnglish = language === "en";
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
+  useEffect(() => {
+    const footer = footerRef.current;
+    if (!footer || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setFooterVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.2 });
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="app">
+      <SmoothGlowCursor />
 
       <header className="topbar">
         <div className="logo">
@@ -356,8 +384,23 @@ export default function App() {
           <img src={logoLentina} alt="Logo Lentina" />
         </div>
 
-        <div className="system-status">
-         
+        <div className="language-switch" role="group" aria-label="Pilih bahasa / Select language">
+          <button
+            type="button"
+            className={language === "id" ? "is-active" : ""}
+            aria-pressed={language === "id"}
+            onClick={() => setLanguage("id")}
+          >
+            ID
+          </button>
+          <button
+            type="button"
+            className={language === "en" ? "is-active" : ""}
+            aria-pressed={language === "en"}
+            onClick={() => setLanguage("en")}
+          >
+            EN
+          </button>
         </div>
       </header>
 
@@ -365,7 +408,7 @@ export default function App() {
 
         <div className="hero-content">
           <h1 className="subtitle">
-            Selamat Datang di 
+            {isEnglish ? "Welcome to" : "Selamat Datang di"}
           </h1>
 
           <h1>
@@ -378,18 +421,18 @@ export default function App() {
             
           </p> */}
 
-          <nav className="section-nav" aria-label="Navigasi utama">
+          <nav className="section-nav" aria-label={isEnglish ? "Main navigation" : "Navigasi utama"}>
             <button className="interaction" onClick={() => document.getElementById("home")?.scrollIntoView({ behavior: "smooth" })}>
               <span className="cursor-symbol">✧</span>
               Home
             </button>
             <button className="interaction" onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}>
               <span className="cursor-symbol">✧</span>
-              About Me
+              {isEnglish ? "About Me" : "Tentang Saya"}
             </button>
             <button className="interaction" onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}>
               <span className="cursor-symbol">✧</span>
-              Portofolio
+              {isEnglish ? "Portfolio" : "Portofolio"}
             </button>
           </nav>
         </div>
@@ -421,7 +464,7 @@ export default function App() {
              <Lanyard frontImage={profileImage} />
            </div>
            <div className="about-lanyard-content">
-             <About />
+              <About language={language} />
            </div>
         </div>
       </section>
@@ -429,15 +472,18 @@ export default function App() {
       <section className="page-section portfolio-section" id="portfolio">
         <div className="portfolio-heading">
           <p>MARLENTINA DESIGN</p>
-          <h2>Portofolio</h2>
+          <h2>{isEnglish ? "Portfolio" : "Portofolio"}</h2>
           
         </div>
-        <SectionConten />
+        <SectionConten language={language} />
       </section>
 
-      <footer>
-        <span>Terima Kasih </span>
-        <span>POWERED BY REACT + THREE.JS</span>
+      <footer
+        ref={footerRef}
+        className={`footer-reveal${footerVisible ? " is-visible" : ""}`}
+      >
+        <span>{isEnglish ? "Thank You" : "Terima Kasih"}</span>
+        <span></span>
       </footer>
 
     </main>
