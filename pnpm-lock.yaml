@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  swiper@14.4.0:
+    hash: 429c71382464d5f6af5a71763f50152a68074c0c3edf2930b527c4cadd3d4c24
+    path: patches/swiper@14.4.0.patch
+
 importers:
 
   .:
@@ -31,7 +36,7 @@ importers:
         version: 19.3.1(react@19.3.1)
       swiper:
         specifier: ^14.4.0
-        version: 14.4.0
+        version: 14.4.0(patch_hash=429c71382464d5f6af5a71763f50152a68074c0c3edf2930b527c4cadd3d4c24)
       three:
         specifier: ^0.187.0
         version: 0.187.0
@@ -2188,7 +2193,7 @@ snapshots:
     dependencies:
       react: 19.3.1
 
-  swiper@14.4.0: {}
+  swiper@14.4.0(patch_hash=429c71382464d5f6af5a71763f50152a68074c0c3edf2930b527c4cadd3d4c24): {}
 
   tailwindcss@4.3.5: {}
 

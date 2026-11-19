@@ -1,2 +1,5 @@
 packages:
   - robot
+
+patchedDependencies:
+  swiper@14.4.0: patches/swiper@14.4.0.patch
