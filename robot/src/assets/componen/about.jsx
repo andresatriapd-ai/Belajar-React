@@ -289,8 +289,8 @@ export default function About({ language = "id" }) {
             <h3>{isEnglish ? "Certification" : "Sertifikasi"}</h3>
             <p>
               {isEnglish
-                ? "SketchUp training by ACA Pacific Indonesia - 2021"
-                : "Pelatihan SketchUp oleh ACA Pacific Indonesia - 2021"}
+                ? "SketchUp training by ACA Pacific Indonesia - [2021]"
+                : "Pelatihan SketchUp oleh ACA Pacific Indonesia - [2021]"}
             </p>
           </section>
 
